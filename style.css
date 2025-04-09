@@ -130,7 +130,7 @@
   
   /* --- Hero Section --- */
   #hero {
-    background: var(--clr-mid-gray) url('https://via.placeholder.com/1920x600.png/222831/EEEEEE?text=unexpc+Gaming+Experts') no-repeat center center/cover; /* תמונת Placeholder */
+    background: var(--clr-mid-gray) url('https://picsum.photos/seed/hero/1920/600') no-repeat center center/cover; /* תמונת רקע לדוגמה */
     /* החלף את ה-URL בתמונה אמיתית דרך ה-CSS או השאר ככה עד שיהיה לך קובץ תמונה */
     min-height: 60vh; /* גובה מינימלי של 60% מגובה המסך */
     display: flex;
@@ -272,21 +272,45 @@
   }
   
   .testimonial-card {
-    background-color: var(--clr-mid-gray);
-    padding: 1.5rem;
-    border-radius: 5px;
-    border-left: 5px solid var(--clr-accent-green); /* פס ירוק בצד */
+    background-color: var(--clr-base-gray); /* שינוי לרקע מעט כהה יותר */
+    padding: 2rem; /* הגדלת ריווח פנימי */
+    border-radius: 8px; /* עיגול פינות מוגבר */
+    border-top: 4px solid var(--clr-accent-green); /* פס ירוק למעלה במקום בצד */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* הוספת צללית */
+    position: relative; /* נדרש עבור ה-::before */
+    padding-top: 3rem; /* ריווח נוסף למעלה עבור הגרשיים */
+    transition: transform 0.3s ease;
+  }
+  
+  .testimonial-card:hover {
+      transform: translateY(-3px); /* אפקט ריחוף קל */
+  }
+  
+  /* הוספת גרשיים גדולים כאלמנט עיצובי */
+  .testimonial-card::before {
+      content: '“'; /* תו גרש פותח */
+      position: absolute;
+      top: 0.5rem;
+      right: 1.5rem; /* מיקום בצד ימין (RTL) */
+      font-size: 4rem; /* גודל גדול */
+      color: var(--clr-accent-green); /* צבע ירוק */
+      line-height: 1;
+      opacity: 0.6; /* שקיפות קלה */
+      font-family: Georgia, serif; /* פונט עם גרשיים יפים */
   }
   
   .testimonial-card p {
     font-style: italic;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem; /* הגדלת מרווח תחתון */
+    font-size: 1.05rem; /* הגדלה קלה של הפונט */
+    color: var(--clr-light-gray); /* וידוא צבע טקסט בהיר */
   }
   
   .testimonial-card footer {
     font-size: 0.9rem;
+    font-weight: bold; /* הדגשת החתימה */
     color: var(--clr-accent-blue); /* צבע תכלת לחתימה */
-    text-align: left;
+    text-align: left; /* יישור לשמאל (RTL) */
   }
   
   /* --- Contact Section --- */
