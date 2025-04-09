@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+
+/* --- הגדרות בסיס ומשתני צבע --- */
+:root {
+    --clr-base-gray: #222831; /* אפור כהה מאוד כבסיס */
+    --clr-mid-gray: #393E46;  /* אפור מעט בהיר יותר לרקעים משניים */
+    --clr-light-gray: #EEEEEE; /* אפור בהיר לטקסט על רקע כהה */
+    --clr-text-dark: #333;    /* טקסט כהה על רקע בהיר */
+    --clr-accent-orange: #FD7014; /* כתום גיימינג בוהק */
+    --clr-accent-green: #00adb5; /* ירוק-טורקיז טכנולוגי */
+    --clr-accent-blue: #33ccff; /* תכלת בהיר */
+  
+    --font-primary: 'Rubik', Arial, sans-serif; /* דוגמה לפונט - החלף בפונט שבחרת */
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth; /* גלילה חלקה לקישורים פנימיים */
+  }
+  
+  body {
+    font-family: var(--font-primary);
+    line-height: 1.7;
+    background-color: var(--clr-base-gray);
+    color: var(--clr-light-gray);
+    direction: rtl; /* קביעת כיווניות */
+  }
+  
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+    overflow: hidden; /* מניעת גלישה של אלמנטים */
+  }
+  
+  h1, h2, h3 {
+    font-weight: 700; /* משקל כבד לכותרות */
+    margin-bottom: 1rem;
+    color: var(--clr-light-gray); /* צבע ברירת מחדל לכותרות */
+  }
+  
+  h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase; /* אותיות גדולות להדגשה */
+    color: var(--clr-accent-orange); /* הדגשת כותרות אזורים בכתום */
+  }
+  
+  h3 {
+      font-size: 1.5rem;
+      color: var(--clr-accent-blue); /* הדגשת כותרות משנה בתכלת */
+  }
+  
+  p {
+    margin-bottom: 1rem;
+  }
+  
+  a {
+    color: var(--clr-accent-orange);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #ff9d5c; /* כתום בהיר יותר במעבר עכבר */
+  }
+  
+  /* --- Header & Navigation --- */
+  header {
+    background-color: rgba(0, 0, 0, 0.8); /* רקע שחור חצי שקוף */
+    padding: 1rem 0;
+    position: sticky; /* הופך את התפריט לדביק בראש הדף */
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(5px); /* אפקט טשטוש לרקע (לא נתמך בכל הדפדפנים) */
+  }
+  
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-placeholder a {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--clr-light-gray); /* צבע לבן/אפור בהיר ללוגו */
+  }
+  .logo-placeholder a:hover {
+      color: var(--clr-accent-orange);
+  }
+  /* --- סגנון ללוגו Placeholder אם משתמשים ב-div --- */
+  .logo-placeholder {
+    /* background-color: #555; */ /* צבע רקע אם רוצים */
+    /* padding: 5px 15px; */
+    /* border: 1px solid var(--clr-accent-orange); */ /* מסגרת כתומה אם רוצים */
+    /* display: inline-block; */
+    min-width: 150px; /* רוחב מינימלי ללוגו */
+    text-align: center;
+  }
+  
+  header nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  header nav ul li {
+    margin-right: 20px; /* מרווח בין פריטי תפריט */
+  }
+  
+  header nav ul li a {
+    color: var(--clr-light-gray);
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+  }
+  
+  header nav ul li a:hover {
+    color: var(--clr-accent-orange);
+  }
+  
+  /* --- Hero Section --- */
+  #hero {
+    background: var(--clr-mid-gray) url('https://via.placeholder.com/1920x600.png/222831/EEEEEE?text=unexpc+Gaming+Experts') no-repeat center center/cover; /* תמונת Placeholder */
+    /* החלף את ה-URL בתמונה אמיתית דרך ה-CSS או השאר ככה עד שיהיה לך קובץ תמונה */
+    min-height: 60vh; /* גובה מינימלי של 60% מגובה המסך */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 0;
+    position: relative; /* נדרש עבור ה-overlay */
+  }
+  
+  /* --- Overlay (שכבה כהה מעל תמונת הרקע לשיפור קריאות) --- */
+  #hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6); /* שכבה שחורה חצי-שקופה */
+      z-index: 1;
+  }
+  
+  #hero .container {
+      position: relative; /* כדי שהתוכן יהיה מעל ה-overlay */
+      z-index: 2;
+  }
+  
+  #hero h1 {
+    color: #fff; /* כותרת ראשית בלבן */
+    margin-bottom: 1rem;
+  }
+  
+  #hero p {
+    font-size: 1.2rem;
+    color: var(--clr-light-gray);
+    margin-bottom: 2rem;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background-color: var(--clr-accent-orange);
+    color: #fff;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #e65c00; /* כתום כהה יותר */
+    color: #fff;
+    transform: scale(1.05); /* הגדלה קלה במעבר עכבר */
+  }
+  
+  /* --- Sections General Styling --- */
+  section {
+    padding: 4rem 0;
+  }
+  
+  section:nth-child(even) { /* רקע מעט שונה לאזורים זוגיים */
+    background-color: var(--clr-mid-gray);
+  }
+  
+  /* --- Services Section --- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* רשת רספונסיבית */
+    gap: 2rem; /* רווח בין הקלפים */
+  }
+  
+  .service-card {
+    background-color: var(--clr-base-gray); /* רקע כהה לקלפים */
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid var(--clr-mid-gray); /* מסגרת עדינה */
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px); /* הרמה קלה במעבר עכבר */
+    box-shadow: 0 5px 15px rgba(253, 112, 20, 0.2); /* הצללה כתומה עדינה */
+  }
+  
+  .service-card i { /* סגנון לאייקונים אם משתמשים */
+    font-size: 2.5rem;
+    color: var(--clr-accent-green); /* צבע ירוק לאייקונים */
+    margin-bottom: 1rem;
+  }
+  
+  .service-card h3 {
+    margin-bottom: 1rem;
+  }
+  
+  /* --- About Section --- */
+  .about-content {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+  }
+  .about-text {
+      flex: 1; /* תופס את רוב הרוחב */
+  }
+  .about-image {
+      flex-basis: 300px; /* רוחב קבוע לתמונה */
+  }
+  .store-image-container {
+      margin-top: 2rem;
+  }
+  
+  /* סגנון כללי לתמונות Placeholder */
+  .image-placeholder {
+    background-color: var(--clr-mid-gray);
+    border: 1px dashed var(--clr-accent-blue);
+    color: var(--clr-light-gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 0.9rem;
+    min-height: 200px; /* גובה מינימלי */
+    width: 100%; /* רוחב מלא של האלמנט שמכיל אותו */
+    border-radius: 5px;
+  }
+  
+  .highlight-orange {
+      color: var(--clr-accent-orange);
+      font-weight: 700;
+  }
+  
+  /* --- Testimonials Section --- */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .testimonial-card {
+    background-color: var(--clr-mid-gray);
+    padding: 1.5rem;
+    border-radius: 5px;
+    border-left: 5px solid var(--clr-accent-green); /* פס ירוק בצד */
+  }
+  
+  .testimonial-card p {
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonial-card footer {
+    font-size: 0.9rem;
+    color: var(--clr-accent-blue); /* צבע תכלת לחתימה */
+    text-align: left;
+  }
+  
+  /* --- Contact Section --- */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    align-items: start; /* ליישר להתחלה למעלה */
+  }
+  
+  .contact-details p {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+  }
+  .contact-details strong {
+      color: var(--clr-accent-blue); /* הדגשת הכותרת בתכלת */
+      margin-left: 5px; /* מרווח קטן */
+  }
+  .contact-details a {
+      color: var(--clr-accent-orange);
+      word-break: break-all; /* למנוע גלישה של קישורים ארוכים */
+  }
+  .contact-details a[href^="https://wa.me/"] {
+      color: var(--clr-accent-green); /* צבע ירוק לוואטסאפ */
+      font-weight: bold;
+  }
+  .contact-details a[href^="https://wa.me/"]:hover {
+       color: #00dcca;
+  }
+  
+  
+  #map-placeholder {
+    background-color: var(--clr-mid-gray);
+    border: 1px solid var(--clr-accent-blue);
+    min-height: 300px; /* גובה מינימלי למפה */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 0.9em;
+  }
+  
+  #map-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 300px; /* ודא שה-iframe ממלא את ה-div */
+      border: none;
+  }
+  
+  /* --- Footer --- */
+  footer {
+    background-color: #111; /* פוטר שחור */
+    color: #aaa;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+  }
+  
+  /* --- נגישות: סגנונות פוקוס --- */
+  a:focus,
+  button:focus,
+  .cta-button:focus {
+    outline: 2px solid var(--clr-accent-blue); /* מסגרת תכלת */
+    outline-offset: 2px; /* מרווח קטן מהאלמנט */
+    border-radius: 3px; /* עיגול פינות למסגרת הפוקוס */
+  }
+  
+  /* --- Responsive Design --- */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    header nav ul {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+    header nav ul li {
+        margin: 0 10px;
+    }
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+     .about-image {
+          flex-basis: auto; /* חזרה לגודל אוטומטי */
+          max-width: 300px; /* הגבלת רוחב תמונה במובייל */
+          margin: 1rem auto;
+      }
+    .contact-grid {
+        grid-template-columns: 1fr; /* עמודה אחת במובייל */
+    }
+    #map-placeholder {
+        margin-top: 1rem;
+    }
+  }
