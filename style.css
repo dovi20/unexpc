@@ -123,6 +123,8 @@ header {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--clr-light-text);
+     color: #FFA500; /* Orange color */
+
 }
 
 .header-container {
@@ -188,7 +190,7 @@ header {
   }
   /* --- Hero Section --- */
   #hero {
-    background: var(--clr-mid-gray) url('https://picsum.photos/seed/hero/1920/600') no-repeat center center/cover;
+    background: var(--clr-mid-gray) url('https://images.unsplash.com/photo-1610907257054-1f38a86e4e7c?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
     /* החלף את ה-URL בתמונה אמיתית דרך ה-CSS או השאר ככה עד שיהיה לך קובץ תמונה */
     min-height: 60vh;
     display: flex;
@@ -217,7 +219,7 @@ header {
   
   #hero h1 {
     color: var(--clr-light-text);
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-bottom: 0.5rem;
   }
   
@@ -325,11 +327,11 @@ section:nth-child(even) {
       border-image-source: linear-gradient(to right, #ff0000, #00ff00, #0000ff); /* RGB */
   }
 
-  .about-image img {
-      border-radius: 5px;
-      width: 100%;
+ .about-image img {
+    border-radius: 5px;
+    width: 100%;
   }
-   .store-image-container {
+  .store-image-container {
       margin-top: 2rem;
    }
   /* סגנון כללי לתמונות Placeholder */
@@ -359,11 +361,11 @@ section:nth-child(even) {
   
   /* --- Testimonials Section --- */
   .testimonials-grid {
-    display: grid;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    border: 2px solid;
+    border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1;
   }
   
   .testimonial-card {
@@ -374,6 +376,10 @@ section:nth-child(even) {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     position: relative; /* נדרש עבור ה-::before */
     padding-top: 3rem; /* ריווח נוסף למעלה עבור הגרשיים */
+    flex: 0 0 100%;
+    min-width: 100%;
+    text-align: center;
+    animation: slideTestimonials 30s linear infinite;
     transition: transform 0.3s ease;
   }
 
@@ -406,6 +412,18 @@ section:nth-child(even) {
     font-weight: bold; /* הדגשת החתימה */
     color: var(--clr-primary-accent); /* צבע תכלת לחתימה */
     text-align: start;
+  }
+  
+  @keyframes slideTestimonials {
+      0% {
+        transform: translateX(0%);
+      }
+      20% {
+        transform: translateX(0%);
+      }
+      25% {
+        transform: translateX(-100%);
+      }
   }
   
   /* --- Contact Section --- */
