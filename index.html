@@ -7,27 +7,35 @@
     <title>unexpc - מומחי גיימינג ומחשבים בירושלים</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    </head>
+</head>
 <body>
 
     <header>
         <div class="container">
-            <div class="logo-placeholder">
-                <a href="index.html">unexpc</a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#services">שירותים</a></li>
-                    <li><a href="#about">אודותינו</a></li>
-                    <li><a href="#testimonials">המלצות</a></li>
-                    <li><a href="#contact">צור קשר</a></li>
+            <a href="index.html" class="logo">unexpc</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav class="nav">
+                <ul class="nav__list">
+                    
+                
+                
+                    <li class="nav__item"><a href="#services" class="nav__link">שירותים</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">אודותינו</a></li>
+                    <li class="nav__item"><a href="#testimonials" class="nav__link">המלצות</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">צור קשר</a></li>
                 </ul>
             </nav>
         </div>
-    </header>
+        
+        
+    </header> <div id="backToTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
     <main>
-        <section id="hero">
+        <section id="hero" class="fade-in">
             <div class="container">
                <h1>מומחי הגיימינג והמחשבים שלך בירושלים</h1>
                 <p>מעבדה מקצועית, בניית מחשבי גיימינג מותאמים אישית, ומכירת ציוד מהמותגים המובילים.</p>
@@ -35,7 +43,7 @@
             </div>
             </section>
 
-        <section id="services">
+        <section id="services" class="fade-in">
             <div class="container">
                 <h2>השירותים שלנו</h2>
                 <div class="services-grid">
@@ -57,7 +65,7 @@
             </div>
         </section>
 
-        <section id="about">
+        <section id="about" class="fade-in">
             <div class="container about-content">
                 <div class="about-text">
                     <p>מאז הקמתנו, unexpc צברה מוניטין של מצוינות בתחום המחשבים והגיימינג בירושלים. אנו שואפים לספק ללקוחותינו את השירותים הטובים ביותר, תוך התמקדות באיכות, אמינות ומקצועיות. משימתנו היא להעניק פתרונות טכנולוגיים מתקדמים ומותאמים אישית, תוך שמירה על יחס אישי ודאגה לכל לקוח.</p>
@@ -81,7 +89,7 @@
              </div>
         </section>
 
-        <section id="testimonials">
+        <section id="testimonials" class="fade-in">
             <div class="container">
                 <h2>לקוחות ממליצים</h2>
                 <div class="testimonials-grid">
@@ -101,13 +109,13 @@
                 </div>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="fade-in">
             <div class="container">
                 <h2>צור קשר</h2>
                 <div class="contact-grid">
                     <div class="contact-details">
                         <p><strong>כתובת:</strong> פינס 7, ירושלים</p>
-                        <p><strong>טלפון חנות:</strong> <a href="tel:02-9999999"><i class="fas fa-phone"></i> 02-9999999</a></p>
+                       <p><strong>טלפון חנות:</strong> <a href="tel:02-9999999"><i class="fas fa-phone"></i> 02-9999999</a></p>
                         <p><strong>טלפון מעבדה/טכנאי:</strong> <a href="tel:050-1234567"><i class="fas fa-phone"></i> 050-1234567</a></p>
                         <p><strong>וואטסאפ (מעבדה):</strong> <a href="https://wa.me/972501234567" target="_blank" rel="noopener noreferrer">לחץ לשליחת הודעה</a></p>
                         <p><strong>אימייל:</strong> <a href="mailto:unexpc@gmail.com">unexpc@gmail.com</a></p>
@@ -141,5 +149,42 @@
         // סקריפט פשוט להוספת השנה הנוכחית בפוטר
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
+    <script>
+        
+        const navToggle = document.querySelector(".nav-toggle");
+
+        const nav = document.querySelector(".nav");
+
+        navToggle.addEventListener("click", () => {
+            nav.classList.toggle("nav--visible");
+        });
+    </script>
+
+    <script>
+        const backToTopButton = document.getElementById("backToTopBtn");
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        
+        // סקריפט פשוט להוספת השנה הנוכחית בפוטר
+        const yearSpan = document.getElementById('year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    </script>
+
 </body>
 </html>
