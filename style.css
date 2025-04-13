@@ -190,8 +190,8 @@ header {
   }
   /* --- Hero Section --- */
   #hero {
-    background: var(--clr-mid-gray) url('https://images.unsplash.com/photo-1610907257054-1f38a86e4e7c?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-    /* החלף את ה-URL בתמונה אמיתית דרך ה-CSS או השאר ככה עד שיהיה לך קובץ תמונה */
+    background: var(--clr-mid-gray) url('https://images.unsplash.com/photo-1603481588277-b0779f87374f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+
     min-height: 60vh;
     display: flex;
     justify-content: center;
@@ -218,7 +218,7 @@ header {
   }
   
   #hero h1 {
-    color: var(--clr-light-text);
+    color: var(--clr-primary-accent);
     font-size: 4rem;
     margin-bottom: 0.5rem;
   }
@@ -434,10 +434,16 @@ section:nth-child(even) {
     align-items: start;
   }
 
-  .contact-details p {
+ .contact-details p {
     margin-bottom: 0.6rem; /* Reduced margin */
     font-size: 1rem; /* Reduced font size */
-  }
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Show ellipsis for overflow */
+    display: flex;
+    align-items: center;
+}
+
   .contact-details strong {
       color: var(--clr-primary-accent); /* הדגשת הכותרת בתכלת */
       margin-left: 5px;
