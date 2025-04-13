@@ -2,13 +2,13 @@
 
 /* --- הגדרות בסיס ומשתני צבע --- */
 :root {
-    --clr-base-gray: #1E232C; /* אפור כהה מאוד כבסיס */
-    --clr-mid-gray: #2D333D;  /* אפור מעט בהיר יותר לרקעים משניים */
-    --clr-light-gray: #EEEEEE; /* אפור בהיר לטקסט על רקע כהה */
-    --clr-text-dark: #333;    /* טקסט כהה על רקע בהיר */
-    --clr-accent-orange: #FD7014; /* כתום גיימינג בוהק */
-    --clr-accent-green: #00adb5; /* ירוק-טורקיז טכנולוגי */
-    --clr-accent-blue: #33ccff; /* תכלת בהיר */
+    --clr-base-gray: #121212;          /* רקע כהה */
+    --clr-mid-gray: #1E1E1E;           /* רקע משני מעט בהיר יותר */
+    --clr-light-gray: #FFFFFF;        /* לבן לטקסט */
+    --clr-text-dark: #333;             /* טקסט כהה (אם נדרש) */
+    --clr-accent-primary: #3B82F6;     /* כחול ראשי */
+    --clr-accent-secondary: #14B8A6; /* טורקיז משני */
+
   
     --font-primary: 'Rubik', Arial, sans-serif; /* דוגמה לפונט - החלף בפונט שבחרת */
   }
@@ -34,7 +34,7 @@
   .container {
     max-width: 1100px;
     margin: auto;
-    padding: 0 20px;
+    padding: 0 15px;
     overflow: hidden; /* מניעת גלישה של אלמנטים */
   }
   
@@ -54,13 +54,13 @@
     text-align: center;
     margin-bottom: 2rem;
     text-transform: uppercase; /* אותיות גדולות להדגשה */
-    color: var(--clr-accent-orange); /* הדגשת כותרות אזורים בכתום */
+    color: var(--clr-accent-primary); /* הדגשת כותרות אזורים בכתום */
   }
   
   h3 {
       font-size: 1.5rem;
-      color: var(--clr-accent-blue); /* הדגשת כותרות משנה בתכלת */
-  }
+      color: var(--clr-accent-secondary); /* הדגשת כותרות משנה בתכלת */
+  } 
   
   p {
     margin-bottom: 1rem;
@@ -68,12 +68,12 @@
   
   a {
     color: var(--clr-accent-orange);
-    text-decoration: none;
-  }
-  
+    text-decoration: none;  }
+ 
   a:hover {
-    color: #ff9d5c; /* כתום בהיר יותר במעבר עכבר */
-  }
+   color: var(--clr-accent-primary);
+}
+
   
   /* --- Header & Navigation --- */
   header {
@@ -93,14 +93,11 @@
   
   .logo-placeholder a {
     font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--clr-light-gray); /* צבע לבן/אפור בהיר ללוגו */
-  }
-  .logo-placeholder a:hover {
-      color: var(--clr-accent-orange);
-  }
+    font-weight: 600;
+    color: var(--clr-light-gray);  }
+  
   /* --- סגנון ללוגו Placeholder אם משתמשים ב-div --- */
-  .logo-placeholder {
+  .logo-placeholder { 
     /* background-color: #555; */ /* צבע רקע אם רוצים */
     /* padding: 5px 15px; */
     /* border: 1px solid var(--clr-accent-orange); */ /* מסגרת כתומה אם רוצים */
@@ -111,32 +108,35 @@
   
   header nav ul {
     list-style: none;
-    display: flex;
+    display: flex; 
   }
   
   header nav ul li {
-    margin-right: 20px; /* מרווח בין פריטי תפריט */
+    margin-right: 20px;
   }
   
   header nav ul li a {
     color: var(--clr-light-gray);
-    padding: 5px 10px;
-    transition: color 0.3s ease;
+    padding: 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
   }
   
   header nav ul li a:hover {
-    color: var(--clr-accent-orange);
+    color: var(--clr-light-gray);    
+    background-color: var(--clr-accent-primary);    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* הוספת צללית */
+    border-radius: 5px;
   }
   
   /* --- Hero Section --- */
   #hero {
-    background: var(--clr-mid-gray) url('https://picsum.photos/seed/hero/1920/600') no-repeat center center/cover; /* תמונת רקע לדוגמה */
+    background: var(--clr-mid-gray) url('https://picsum.photos/seed/hero/1920/600') no-repeat center center/cover;
     /* החלף את ה-URL בתמונה אמיתית דרך ה-CSS או השאר ככה עד שיהיה לך קובץ תמונה */
-    min-height: 60vh; /* גובה מינימלי של 60% מגובה המסך */
+    min-height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center; 
     padding: 4rem 0;
     position: relative; /* נדרש עבור ה-overlay */
   }
@@ -149,50 +149,49 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.6); /* שכבה שחורה חצי-שקופה */
+      background-color: rgba(0, 0, 0, 0.5); /* שכבה שחורה חצי-שקופה */
       z-index: 1;
   }
   
   #hero .container {
-      position: relative; /* כדי שהתוכן יהיה מעל ה-overlay */
+      position: relative; 
       z-index: 2;
   }
   
   #hero h1 {
-    color: #fff; /* כותרת ראשית בלבן */
-    margin-bottom: 1rem;
+    color: var(--clr-light-gray);
+    font-size: 3.5rem;
+    margin-bottom: 1rem; 
   }
   
   #hero p {
-    font-size: 1.2rem;
-    color: var(--clr-light-gray);
-    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: var(--clr-light-gray); 
+    margin-bottom: 2rem; 
   }
   
   .cta-button {
     display: inline-block;
-    background-color: var(--clr-accent-orange);
-    color: #fff;
+    background-color: var(--clr-accent-primary);
+    color: var(--clr-light-gray);
     padding: 12px 30px;
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+    font-weight: 600;
     border: none;
     border-radius: 5px;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
   }
   
   .cta-button:hover {
-    background-color: #e65c00; /* כתום כהה יותר */
-    color: #fff;
-    transform: scale(1.05); /* הגדלה קלה במעבר עכבר */
+    background-color: #2563eb;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
   }
-  
+
   /* --- Sections General Styling --- */
   section {
-    padding: 4rem 0;
+    padding: 3rem 0; 
   }
-  
   section:nth-child(even) { /* רקע מעט שונה לאזורים זוגיים */
     background-color: var(--clr-mid-gray);
   }
@@ -204,21 +203,23 @@
     gap: 2rem; /* רווח בין הקלפים */
   }
   
-  .service-card {
-    background-color: var(--clr-base-gray); /* רקע כהה לקלפים */
-    padding: 2rem;
+  .service-card { 
+    background-color: #1E1E1E; /* רקע כהה לקלפים */
+    padding: 1.5rem;
     text-align: center;
-    border: 1px solid var(--clr-mid-gray); /* מסגרת עדינה */
+    border: 1px solid #2D2D2D; /* מסגרת עדינה */
     border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* הוספת transition */
   }
-  
+
   .service-card:hover {
-    transform: translateY(-5px); /* הרמה קלה במעבר עכבר */
-    box-shadow: 0 5px 15px rgba(253, 112, 20, 0.2); /* הצללה כתומה עדינה */
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   }
   
-  .service-card i { /* סגנון לאייקונים אם משתמשים */
+
+
+ .service-card i { /* סגנון לאייקונים אם משתמשים */
     font-size: 2.5rem;
     color: var(--clr-accent-green); /* צבע ירוק לאייקונים */
     margin-bottom: 1rem;
@@ -248,8 +249,8 @@
   .image-placeholder {
     background-color: var(--clr-mid-gray);
     border: 1px dashed var(--clr-accent-blue);
-    color: var(--clr-light-gray);
-    display: flex;
+    color: var(--clr-light-gray); 
+    display: flex; 
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -260,13 +261,15 @@
   }
   
   .highlight-orange {
-      color: var(--clr-accent-orange);
+      color: var(--clr-accent-primary);
       font-weight: 700;
   }
   
   /* --- Testimonials Section --- */
   .testimonials-grid {
     display: grid;
+    margin-top: 20px;
+    margin-bottom: 20px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
   }
@@ -275,8 +278,8 @@
     background-color: var(--clr-base-gray); /* שינוי לרקע מעט כהה יותר */
     padding: 2rem; /* הגדלת ריווח פנימי */
     border-radius: 8px; /* עיגול פינות מוגבר */
-    border-top: 4px solid var(--clr-accent-green); /* פס ירוק למעלה במקום בצד */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* הוספת צללית */
+    border-top: 4px solid var(--clr-accent-secondary); /* פס ירוק למעלה במקום בצד */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
     position: relative; /* נדרש עבור ה-::before */
     padding-top: 3rem; /* ריווח נוסף למעלה עבור הגרשיים */
     transition: transform 0.3s ease;
@@ -293,7 +296,7 @@
       top: 0.5rem;
       right: 1.5rem; /* מיקום בצד ימין (RTL) */
       font-size: 4rem; /* גודל גדול */
-      color: var(--clr-accent-green); /* צבע ירוק */
+      color: var(--clr-accent-secondary); /* צבע ירוק */
       line-height: 1;
       opacity: 0.6; /* שקיפות קלה */
       font-family: Georgia, serif; /* פונט עם גרשיים יפים */
@@ -303,7 +306,7 @@
     font-style: italic;
     margin-bottom: 1.5rem; /* הגדלת מרווח תחתון */
     font-size: 1.05rem; /* הגדלה קלה של הפונט */
-    color: var(--clr-light-gray); /* וידוא צבע טקסט בהיר */
+    color: var(--clr-light-gray); 
   }
   
   .testimonial-card footer {
@@ -330,16 +333,16 @@
       margin-left: 5px; /* מרווח קטן */
   }
   .contact-details a {
-      color: var(--clr-accent-orange);
+      color: var(--clr-accent-primary);
       word-break: break-all; /* למנוע גלישה של קישורים ארוכים */
   }
   .contact-details a[href^="https://wa.me/"] {
-      color: var(--clr-accent-green); /* צבע ירוק לוואטסאפ */
+      color: var(--clr-accent-secondary); /* צבע ירוק לוואטסאפ */
       font-weight: bold;
   }
   .contact-details a[href^="https://wa.me/"]:hover {
        color: #00dcca;
-  }
+  } 
   
   
   #map-placeholder {
@@ -375,11 +378,11 @@
   
   /* --- נגישות: סגנונות פוקוס --- */
   a:focus,
-  button:focus,
-  .cta-button:focus {
-    outline: 2px solid var(--clr-accent-blue); /* מסגרת תכלת */
-    outline-offset: 2px; /* מרווח קטן מהאלמנט */
-    border-radius: 3px; /* עיגול פינות למסגרת הפוקוס */
+  button:focus {
+    outline: 2px solid var(--clr-accent-primary);
+    outline-offset: 2px;
+    border-radius: 3px; 
+
   }
   
   /* --- Responsive Design --- */
@@ -417,3 +420,4 @@
         margin-top: 1rem;
     }
   }
+
