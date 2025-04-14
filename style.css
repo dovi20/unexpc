@@ -439,7 +439,6 @@ section:nth-child(even) {
     font-size: 1rem; /* Reduced font size */
     white-space: nowrap; /* Prevent wrapping */
     overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Show ellipsis for overflow */
     display: flex;
     align-items: center;
 }
